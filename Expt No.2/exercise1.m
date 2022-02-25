@@ -1,0 +1,13 @@
+clc;
+clear all;
+close all;
+w = [0:1:500]*4*pi/500;
+x = exp(j*(w-pi/3))./(exp(j*(w-pi/3))-0.9);
+subplot(121);
+plot(w, abs(x));
+title('phase response'), xlabel('w(radian)');
+ylabel('Angle');
+subplot(122);
+plot(w, angle(x));
+title('phase response'), xlabel('w(radian)');
+ylabel('Angle');

@@ -1,0 +1,17 @@
+clc; 
+clear all;
+close all;
+b = [0 1 1];
+a = [1 5 6];
+Fs = 1;
+disp('digital filter');
+[bz, az] = bilinear(b, a, Fs);
+[H, w] = freqs(b, a);
+subplot(211), plot(w/(2*pi),20*log10(abs(H))), grid on;
+title('Analog Filter');
+xlabel('frequencey in Hz'), ylabel('Magnitude in db');
+[Hz, wz] = freqz(bz, az);
+k = wz/pi;
+subplot(212), plot(k, 20*log10(abs(Hz))), grid on;
+title('Frequency response of digital filter');
+xlabel('frequencey in Hz'), ylabel('Magnitude in db');
